@@ -1,25 +1,25 @@
-
-name: hola-mundo #Nombre del workflow
-on: [push] #evento que lo activará
-jobs: #Definición de los jobs
-  hola-mundo: #Nombre del job
-    runs-on: ubuntu-latest #Maquina en la que correrá
-    steps: #Lista de steps del job hola-mundo
+name: hola-mundo # Nombre del workflow
+on: [push] # Evento que lo activará
+jobs: # Definición de los jobs
+  hola-mundo: # Nombre del job
+    runs-on: ubuntu-latest # Máquina en la que correrá
+    steps: # Lista de steps del job hola-mundo
       - uses: actions/checkout@v3
-      - name: Hola mundo #Segundo step de nombre Hola mundo
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js # Nombre del paso de configuración de Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: helloworld
+      - name: Hola mundo # Paso para imprimir "Hola mundo"
+        run: echo "Hola mundo"
+      - name: Ejecutar script de Node.js # Nombre del paso para ejecutar el script de Node.js
         run: node helloworld.js
-jobs: #Definición de los jobs
-  hola-mundo2: #Nombre del job
-    runs-on: ubuntu-latest #Maquina en la que correrá
-    steps: #Lista de steps del job hola-mundo
-        uses: actions/checkout@v3 #Usará el action haythem/public-ip
-      - name: Set up Python 3.10 #Segundo step de nombre Hola mundo
-      - uses: actions/setup-python@v3
+  hola-mundo2: # Nombre del segundo job
+    runs-on: ubuntu-latest # Máquina en la que correrá
+    steps: # Lista de steps del job hola-mundo2
+      - uses: actions/checkout@v3 # Usará el action actions/checkout
+      - name: Set up Python 3.10 # Paso para configurar Python 3.10
+        uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-      - name: helloworld
+      - name: Ejecutar script de Python # Paso para ejecutar el script de Python
         run: python3 helloworld.py
