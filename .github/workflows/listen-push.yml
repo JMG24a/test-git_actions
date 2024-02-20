@@ -1,14 +1,16 @@
-name: test-trigger # Nombre del workflow
-run-name: test trigger branch 0
-on: 
-    push: # Evento que lo activará
-        branches:
-            - rama0
+name: trigger_push # Nombre del workflow
+run-name: trigger push
+on:
+  push: # Evento que lo activará
+    branches:
+      - 'rama0'
+    paths:
+      - '**.js'
 jobs: # Definición de los jobs
-  hola-mundo: # Nombre del job
+  hola-mundo-js: # Nombre del job
     runs-on: ubuntu-latest # Máquina en la que correrá
     steps: # Lista de steps del job hola-mundo
-      - name: checkout 
+      - name: checkout
         uses: actions/checkout@v4
       - name: Setup Node.js # Nombre del paso de configuración de Node.js
         uses: actions/setup-node@v4
