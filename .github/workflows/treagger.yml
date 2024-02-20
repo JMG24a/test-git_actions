@@ -14,7 +14,7 @@ jobs: # Definición de los jobs
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Hola mundo # Paso para imprimir "Hola mundo"
+      - name: trigger push on branch 0 # Paso para imprimir "Hola mundo"
         run: echo "hello from branch 0"
       - name: Ejecutar script de Node.js # Nombre del paso para ejecutar el script de Node.js
         run: node helloworld.js
