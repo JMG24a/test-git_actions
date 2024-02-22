@@ -1,0 +1,18 @@
+name: trigger_issues-comment # Nombre del workflow
+run-name: trigger issues comment
+on:
+  issue_comment: # Evento que lo activará
+    types:
+      [created, deleted]
+jobs: # Definición de los jobs
+    hola-mundo-py: # Nombre del job
+        runs-on: ubuntu-latest # Máquina en la que correrá
+        steps: # Lista de steps del job hola-mundo
+          - name: checkout
+            uses: actions/checkout@v4
+          - name: Setup python3 # Nombre del paso de configuración de Node.js
+            uses: actions/setup-python@v3
+            with:
+                python-version: "3.10"
+          - name: Ejecutar script de Python # Paso para ejecutar el script de Python
+            run: python3 helloworld.py
